@@ -8,7 +8,7 @@ In the case of collisions one can store an array of strings at the index the str
 
 The algorithm described above is often referred to as other names as well, some examples include: dictionary, hash-table, and hash-map. 
 
-Hash-indexing has the advantage over binary search that hash-indexing is almost always much faster than binary search. The disadvantages of hash-indexing which I believe I usually outweighed by its advantages are larger space requirements and databases which do not store similar values close to each other. This makes it difficult to naively use hash-indexing for fuzzy search. The code in this repository fixes this issue and is why I refer to it as hash-based search.
+Hash-indexing has the advantage over binary search that hash-indexing is almost always much faster than binary search. The disadvantages of hash-indexing which I believe is usually outweighed by its advantages are larger space requirements and databases which do not store similar values close to each other. This makes it difficult to naively use hash-indexing for fuzzy search. The code in this repository fixes the issue of fuzzy search and is why I refer to it as hash-based search.
 
 To perform hash-based search, one first needs some metric, $M$, which allows for ordering the set of searchable strings, $\Omega$, from more desirable to appear first in search results to less desirable. Then, obtain all the prefixes for your searchable strings, hash-index all of the observed prefixes and with each prefix store the $n$ most desirable full search terms associated with that prefix remaining in $\Omega$. Remove the $n$ strings from $\Omega$. Iterate this process until $\Omega$ is empty. This setups a database for hash-based search.
 
